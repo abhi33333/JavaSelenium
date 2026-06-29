@@ -14,7 +14,7 @@ public class InitiateBrowser
 {
 
     public WebDriver driver;
-
+    //before every test
     @BeforeMethod
     public void launchBrowser() throws Exception
     {
