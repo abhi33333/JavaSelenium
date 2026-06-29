@@ -1,0 +1,181 @@
+Sel Element Locator
+====================
+1. ID
+---
+WebElement loginButton = driver.findElement(By.id("username"));
+
+From HTML:
+<input id="username" type="text" placeholder="Enter username">
+
+HTML Tag
+<div class="form-group">
+    <label>Rediffmail ID :</label>
+
+    <div class="email-input-container">
+        <input type="text" class="email-input" id="login1" maxlength="100" name="login" value tabindex="1">
+
+        <div class="email-domain">@rediffmail.com</div>
+    </div>
+</div>
+
+type="text" 
+class="email-input" 
+id="login1"
+
+Selenium
+WebElement loginEmailText = driver.findElement(By.id("login1"));
+========================================================================
+2. Name
+-----
+Selenium
+WebElement loginEmailText = driver.findElement(By.name("name"));
+
+HTML
+<div class="form-group">
+    <label>Password :</label>
+    <div class="email-input-container">
+        <input type="password" class="form-control" id="password" name="passwd" value tabindex="2">
+
+        <span class="toggle-password" id="toggle-password" onclick="togglePassword('password', 'toggle-password')">👁</span>
+    </div>
+</div>
+Selenium
+WebElement password = driver.findElement(By.name("passwd"));
+===========================================================================
+3. Class Name :but many elements may share the same class. 
+            With By.className, only one class can be used. 
+            For multiple classes, use CSS selector.
+----------
+ WebElement password = driver.findElement(By.className("email-input-container"));
+===========================================================================
+4. Link Text 
+----------
+HTML Tag
+<div class="form-group">
+    <label>Rediffmail ID :</label>
+    <div class="email-input-container">
+        <input type="text" class="email-input" id="login1" maxlength="100" name="login" value tabindex="1">
+        <div class="email-domain">@rediffmail.com</div>
+    </div>
+</div>
+
+link text = @rediffmail.com
+<div class="email-domain">@rediffmail.com</div>
+
+Selenium
+WebElement loginText = driver.findElement(By.linkText("@rediffmail.com"));
+
+===========================================================================
+5. Partial Link Text 
+----------
+Selenium
+WebElement loginText = driver.findElement(By.partialLinkText("rediff"));
+==========================================================================
+
+CSS Selectors
+-----------------
+CSS by ID:
+          #email  //# ID if only single found
+        input#email  // input# ID if multiple found
+-----------
+ HTML Tag
+<div class="form-group">
+    <label>Rediffmail ID :</label>
+    <div class="email-input-container">
+        <input type="text" class="email-input" id="login1" maxlength="100" name="login" value tabindex="1">
+        <div class="email-domain">@rediffmail.com</div>
+    </div>
+</div>     
+ Selenium       
+WebElement LoginField = driver.findElement(By.cssSelector("#login1"));
+========================
+
+CSS by class: 
+        .inputtext //dot followed by class name
+        input.inputtext //input dot followed by class name for multiple same class name found
+---------------------------
+Selenium
+ WebElement inputField = driver.findElement(By.cssSelector(".email-domain"));
+ ===========================
+ 
+ CSS by attribute:
+        [type='text'] //take any attribute like in this case type =.... and put it in bracket
+        input[id='email'] // same as above for multiple use input infront
+------------------------------
+HTML
+ <input type="text" class="email-input" id="login1" maxlength="100" name="login" value tabindex="1">
+        <div class="email-domain">@rediffmail.com</div>
+
+name="login"
+Selenium
+WebElement textInput = driver.findElement(By.cssSelector("[name="login"]"));
+==================
+CSS combining ID and attribute:
+        #email[type='text'] //id = #email,attribute = [type='text']
+        input#email[type='text']
+CSS combining class and attribute:
+        .inputtext[type='text'] // class = .inputtext, attribute =[type='text']
+        input.inputtext[type='text']
+CSS combining ID, class,attribute:
+        #email.inputtext[type='text'] // ID= #email, class = .inpittext, attribute =[type='text']
+        input.inputtext[type='text']#email
+=============================
+
+X path:
+    Relative: //
+    Absolute: /
+----------------
+XPath using one attribute: //button[@value='Log In']
+----------
+HTML
+ <input type="text" class="email-input" id="login1" maxlength="100" name="login" value tabindex="1">
+        <div class="email-domain">@rediffmail.com</div>
+
+name="login"
+Selenium:
+WebElement loginButton = driver.findElement(By.xpath("//input[@name="login"]"));
+=======================
+Linked Text: Relative
+          //button[text()="Log In"]      //For login button which says Log In which is the link text
+          //h2[text()= "Sign In"]        //For Sign In lin which says Sign In which is the link text
+-------------------------
+Absolute: always /, copy full xpath from the code
+/html/body/div[2]/div[1]/div/div[2]/div[3]/form/div[1]/div/input
+===========================
+Rule 1: XPath using OR:
+        //button[@value='Log In' or @name='login']
+        This matches if either condition is true.
+        //input[@name="login" or @id -'login1']
+---------------------     
+Rule 2: XPath using AND:
+        //select[@id='day' and @name='birthday_day']
+        This matches only if both conditions are true.
+        //input[@name="login" and @id -'login1']
+------------------------
+Rule 3: XPath using wildcard:
+        //select[@*='day']
+        //*[@id='day']
+        Wildcard means any attribute or any tag. It should be used carefully because it can match unintended elements.
+        //*[@name='login']
+        //input[@* ='login']
+        //*[@* ='login']
+------------------------        
+Rule 4: XPath using exact text:
+        //div[text()='Create New Account']
+        This is case-sensitive and must match exactly.
+ ------------------------       
+Rule 5: XPath using partial text:
+        //div[contains(text(),'new account')]         //use comma
+        This is useful when text may change slightly.
+        //input[contains(@name, "log")]                 //this name has log 
+-----------------------        
+Rule 6: XPath using partial attribute value:
+        //input[contains(@type,'pass')]
+        This can match password, passphrase, or pass-field.
+---------------------------        
+- XPath also supports starts-with() and ends-with() for partial matching.
+
+
+
+
+

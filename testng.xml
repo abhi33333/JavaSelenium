@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Suite">
+
+<listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+</listeners>
+
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="org.web.autopractice2.testcases.BrowserOperations"/>
+      <class name="org.xyz.automation.testcases.HandleAlertsWInFrames"/>
+      <class name="org.xyz.automation.testcases.HandleCalendar"/>
+      <class name="org.xyz.automation.testcases.BrowserControl"/>
+      <class name="demoTestng.TestScenario1"/>
+      <class name="demoTestng.TestScenario2"/>
+      <class name="org.xyz.automation.testcases.HandleKeyboardMouse"/>
+      <class name="org.xyz.automation.testcases.WebElementsList"/>
+      <class name="org.xyz.automation.testcases.FirstAutomation"/>
+      <class name="org.web.autopractice2.testcases.WebElementsPractice"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

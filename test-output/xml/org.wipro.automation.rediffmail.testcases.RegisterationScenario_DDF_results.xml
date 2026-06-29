@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Default test"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="15.226">
+    <properties></properties>
+
+
+
+            <testcase
+                name="tc02_validate_register_functionality_valid_data"
+                time="5.480"
+                classname="org.wipro.automation.rediffmail.testcases.RegisterationScenario_DDF">
+            </testcase>
+            <testcase
+                name="tc02_validate_register_functionality_valid_data"
+                time="3.982"
+                classname="org.wipro.automation.rediffmail.testcases.RegisterationScenario_DDF">
+            </testcase>
+            <testcase
+                name="tc02_validate_register_functionality_valid_data"
+                time="5.764"
+                classname="org.wipro.automation.rediffmail.testcases.RegisterationScenario_DDF">
+            </testcase>
+</testsuite>

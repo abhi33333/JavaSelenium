@@ -1,0 +1,12 @@
+1) Highest average profit margin (weighted by sales): Technology at 17.4%
+2) AOV by segment:
+   - Consumer: $449
+   - Corporate: $466
+   - Home Office: $473
+3) Most common shipping mode (by orders): Standard Class (2994 orders)
+4) Top 5 customers by total sales:
+   - Sean Miller (SM-20320): $25,043
+   - Tamara Chand (TC-20980): $19,052
+   - Raymond Buch (RB-19360): $15,117
+   - Tom Ashbrook (TA-21385): $14,596
+   - Adrian Barton (AB-10105): $14,474
